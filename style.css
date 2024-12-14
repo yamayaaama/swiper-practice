@@ -1,16 +1,60 @@
 @charset "UTF-8";
 
-body {
-  font-family: "Noto Sans JP","Klee One", serif;
-}
-
 .cards-wrapper {
   --_spacing: calc(24 * var(--em-ratio));
+  
+  display: block grid;
+  grid-template-columns: repeat(auto-fill,minmax(min(320px, 100%), 1fr));
+  gap: 24px;
+  max-inline-size: 1200px;
+  margin-inline: auto;
+}
 
+.card {
+  display: block grid;
+  reading-flow: grid-order;
+  grid-template-rows: subgrid;
+  grid-row: span 4;
+  row-gap: var(--_spacing);
+  padding: var(--_spacing);
+  background-color: rgb(from var(--color-dark) r g b / 5%);
+}
+
+.title {
+  font-size: calc(18 * var(--rem-ratio));
+  line-height: 1.25;
+}
+
+.thumbnail {
+  order: -1;
+  margin-block-start: calc(var(--_spacing) * -1);
+  margin-inline: calc(var(--_spacing) * -1);
+
+  & > img {
+    inline-size: 100%;
+    block-size: 100%;
+    aspect-ratio:  16 / 9;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.description {
+  line-height: 1.5;
 }
 
 :root {
   --color-dark: #2a2a2a;
   --color-light: #f7f7f7;
-  
+  --base-text-unit: 16;
+  --rem-ratio: calc(1rem / var(--base-text-unit));
+  --em-ratio: calc(1em / var(--base-text-unit));
+
+  background-color: var(--color-light);
+  color: var(--color-dark);
+}
+
+body {
+  font-family: "Noto Sans JP","Klee One", serif;
+  padding: max(5dvi, 20px);
 }
