@@ -1,7 +1,14 @@
 @charset "UTF-8";
 
+.container {
+  inline-size: min(1280px, 100%);
+  margin-inline: auto;
+  padding: 30px;
+  background-color: lightblue;
+}
+
 .cards-wrapper {
-  --_spacing: calc(24 * var(--em-ratio));
+  --_spacing: calc(12 * var(--em-ratio));
   
   display: block grid;
   grid-template-columns: repeat(auto-fill,minmax(min(320px, 100%), 1fr));
@@ -17,7 +24,7 @@
   grid-row: span 4;
   row-gap: var(--_spacing);
   padding: var(--_spacing);
-  background-color: rgb(from var(--color-dark) r g b / 5%);
+  background-color: #dadada;
 }
 
 .title {
@@ -27,7 +34,7 @@
 
 .thumbnail {
   order: -1;
-  margin-block-start: calc(var(--_spacing) * -1);
+  margin-block-start: calc(var(--_spacing) * -1); 
   margin-inline: calc(var(--_spacing) * -1);
 
   & > img {
@@ -46,6 +53,7 @@
 :root {
   --color-dark: #2a2a2a;
   --color-light: #f7f7f7;
+  --color-accent: #ff6600;
   --base-text-unit: 16;
   --rem-ratio: calc(1rem / var(--base-text-unit));
   --em-ratio: calc(1em / var(--base-text-unit));
