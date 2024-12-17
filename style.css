@@ -4,7 +4,7 @@
   inline-size: min(1280px, 100%);
   margin-inline: auto;
   padding: 30px;
-  background-color: lightblue;
+  position: relative;
 }
 
 .cards-wrapper {
@@ -24,7 +24,7 @@
   grid-row: span 4;
   row-gap: var(--_spacing);
   padding: var(--_spacing);
-  background-color: #dadada;
+  background-color: rgb(from var(--color-dark) r g b / 5%);
 }
 
 .title {
@@ -65,4 +65,18 @@
 body {
   font-family: "Noto Sans JP","Klee One", serif;
   padding: max(5dvi, 20px);
+}
+
+.swiper-button-prev {
+  left: calc(var(--em-ratio) * -5);
+  transform: translateX(calc(var(--em-ratio) * -5));
+}
+.swiper-button-next {
+  right: calc(var(--em-ratio) * -5);
+  transform: translateX(calc(var(--em-ratio) * 5));
+}
+
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  bottom: auto;
+  top: auto;
 }
