@@ -58,6 +58,8 @@
   --rem-ratio: calc(1rem / var(--base-text-unit));
   --em-ratio: calc(1em / var(--base-text-unit));
 
+
+
   background-color: var(--color-light);
   color: var(--color-dark);
 }
@@ -67,11 +69,39 @@ body {
   padding: max(5dvi, 20px);
 }
 
+.swiper-button-prev,
+.swiper-button-next {
+  --_duration: 0.3s;
+  --_background-default: #0a0a0a;
+  --_background-hover: oklch(from blue calc(l * 0.8) c h);
+
+  inline-size: fit-content;
+  border-radius: calc(1px / 0);
+  box-shadow: 0 0 rgb(0 0 0 / 0%), 0 0 rgb(0 0 0 / 0%),
+  0 1px 3px rgb(0 0 0 /10%),0 1px 2px rgb(0 0 0 / 6%);
+  background-color: var(--_background-default);
+  transition: background-color var(--_duration)
+  , opacity var(--_duration);
+
+  &::after {
+    content: "";
+    inline-size: 100%;
+    block-size: 100%;
+    mask-image: var(--_icon);
+    aspect-ratio: 1;
+    background-color: var(--background-current);
+  }  
+}
+
 .swiper-button-prev {
+  --_icon: var(--icon-chevron-left);
+
   left: calc(var(--em-ratio) * -5);
   transform: translateX(calc(var(--em-ratio) * -5));
 }
 .swiper-button-next {
+  --_icon: var(--icon-chevron-right);
+
   right: calc(var(--em-ratio) * -5);
   transform: translateX(calc(var(--em-ratio) * 5));
 }
