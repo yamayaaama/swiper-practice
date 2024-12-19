@@ -89,24 +89,38 @@ body {
     block-size: 100%;
     mask-image: var(--_icon);
     aspect-ratio: 1;
-    background-color: var(--background-current);
+    background-color: #f7f7f7;
   }  
 }
 
 .swiper-button-prev {
   --_icon: var(--icon-chevron-left);
 
-  left: calc(var(--em-ratio) * -5);
-  transform: translateX(calc(var(--em-ratio) * -5));
+  left: calc(var(--em-ratio) * -20);
 }
+
 .swiper-button-next {
   --_icon: var(--icon-chevron-right);
 
-  right: calc(var(--em-ratio) * -5);
-  transform: translateX(calc(var(--em-ratio) * 5));
+  right: calc(var(--em-ratio) * -20);
 }
 
 .swiper-pagination-bullets.swiper-pagination-horizontal {
   bottom: auto;
   top: auto;
+}
+
+.swiper-horizontal > .swiper-pagination-progressbar,
+.swiper-pagination-progressbar.swiper-pagination-horizontal {
+  top: auto;
+  inline-size: calc(100% - 30px);
+  margin-inline: auto;
+  position: relative;
+}
+
+.swiper-pagination-progressbar {
+  --_background: oklch(from white l c h / 20%);
+  --_background: oklch(from white l c h / 90%);
+  
+
 }

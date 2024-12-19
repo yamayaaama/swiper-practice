@@ -5,6 +5,7 @@ const swiper = new Swiper('.swiper', {
   spaceBetween: 24,
   pagination: {
     el: '.swiper-pagination',
+    type: "progressbar",
   },
   navigation: {
     nextEl: '.swiper-button-next',
