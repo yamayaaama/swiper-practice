@@ -24,7 +24,7 @@
   grid-row: span 4;
   row-gap: var(--_spacing);
   padding: var(--_spacing);
-  background-color: rgb(from var(--color-dark) r g b / 5%);
+  background-color: rgb(from var(--color-light) r g b / 65%);
 }
 
 .title {
@@ -50,6 +50,10 @@
   line-height: 1.5;
 }
 
+.price {
+  border-block-start: 1px solid rgb(from var(--color-dark) r g b / 20%);
+}
+
 :root {
   --color-dark: #2a2a2a;
   --color-light: #f7f7f7;
@@ -58,10 +62,6 @@
   --rem-ratio: calc(1rem / var(--base-text-unit));
   --em-ratio: calc(1em / var(--base-text-unit));
 
-
-
-  background-color: var(--color-light);
-  color: var(--color-dark);
 }
 
 body {
@@ -113,14 +113,19 @@ body {
 .swiper-horizontal > .swiper-pagination-progressbar,
 .swiper-pagination-progressbar.swiper-pagination-horizontal {
   top: auto;
-  inline-size: calc(100% - 30px);
+  inline-size: calc(100% - 30px * 2);
   margin-inline: auto;
   position: relative;
 }
 
 .swiper-pagination-progressbar {
-  --_background: oklch(from white l c h / 20%);
-  --_background: oklch(from white l c h / 90%);
-  
+  --_background: oklch(from gray l c h / 20%);
 
+  background-color: var(--_background);
+}
+
+.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+  --_foreground: oklch(from gray l c h / 90%);
+  
+  background-color: var(--_foreground);
 }
